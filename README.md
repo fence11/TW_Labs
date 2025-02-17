@@ -1,2 +1,2 @@
-# TW_Labs
-Labs Tehnologii Web, TI-231 Mihailă Mihai
+# TI-231 Mihailă Mihai
+Labs Tehnologii Web
