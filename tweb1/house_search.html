@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <title>Search</title>
+</head>
+
+<body class="min-h-[100vh] flex flex-col overflow-x-hidden bg-[#16151D]">
+  <div class="w-screen h-screen fixed top-0 left-0 brightness-40 z-[-1]">
+    <img src="assets/BGImage.webp" alt="BG Image" class="w-full h-full object-cover" />
+  </div>
+  <header class="max-w-[1200px] mx-auto flex gap-8 text-3xl font-medium py-8 text-zinc-100">
+    <a href="index.html"
+      class="cursor-pointer relative before:absolute before:content-[''] before:w-0 hover:before:w-full before:transition-all before:duration-300 before:-bottom-2 before:left-0 before:h-[2px] before:bg-[#D84040]">Home</a>
+    <a href="about.html"
+      class="cursor-pointer relative before:absolute before:content-[''] before:w-0 hover:before:w-full before:transition-all before:duration-300 before:-bottom-2 before:left-0 before:h-[2px] before:bg-[#D84040]">About
+      Project</a>
+  </header>
+  <main
+    class="max-w-[1200px] mx-auto grid grid-cols-[360px_1fr] gap-8 my-auto text-zinc-100 h-full w-full text-zinc-900 lg:p-4">
+    <div class="p-4 bg-zinc-100">
+      <h1 class="font-semibold text-xl mb-2">Filters</h1>
+      <hr class="border-zinc-900" />
+      <form method="get" action="house_search.html" class="flex flex-col gap-2 mt-2">
+        <label for="location" class="flex flex-col gap-1">
+          <span class="font-medium">Location</span>
+          <select class="outline-1 outline outline-zinc-900 py-1 px-2 hover:outline-[#8E1616] transition-colors"
+            name="{{ form.location.name }}">
+            <option value="location">Montenegro</option>
+          </select>
+        </label>
+        <label for="property_type" class="flex flex-col gap-1">
+          <span class="font-medium">Property Type</span>
+          <select class="outline-1 outline outline-zinc-900 py-1 px-2 hover:outline-[#8E1616] transition-colors"
+            name="Property type">
+            <option value="Property type">Mansion</option>
+          </select>
+        </label>
+        <label for="min_rooms" class="flex flex-col gap-1">
+          <span class="font-medium">Min Rooms</span>
+          <input type="number" id="min_rooms" name="Min rooms" value="1"
+            class="outline-1 outline outline-zinc-900 py-1 px-2 hover:outline-[#8E1616] transition-colors"
+            placeholder="Minimum Rooms" />
+        </label>
+        <label for="min_surface_area" class="flex flex-col gap-1">
+          <span class="font-medium">Minimum surface area</span>
+          <input min="0" type="number" id="min_surface_area" name="min surface area" value="min surface area" step="5"
+            class="px-2 py-1 hover:outline-[#8E1616] outline-1 outline outline-zinc-900"
+            placeholder="Minimum Surface Area" />
+        </label>
+        <div class="grid grid-cols-2 gap-4">
+          <label for="Parking" class="flex flex-col gap-1">
+            <span class="font-medium">Parking</span>
+            <div class="flex gap-1">
+              <input type="radio" name="parking" value="yes" checked>
+              <input type="radio" name="parking" value="no">
+            </div>
+          </label>
+          <label for="heating" class="flex flex-col gap-1">
+            <span class="font-medium">Centralized Heating</span>
+            <div class="flex gap-1">
+              <input type="radio" name="centralized_heating" value="yes">
+              <input type="radio" name="centralized_heating" value="no" checked>
+            </div>
+          </label>
+          <label for="terrace" class="flex flex-col gap-1">
+            <span class="font-medium">Terrace</span>
+            <div class="flex gap-1">
+              <input type="radio" name="terrace" value="yes" checked>
+              <input type="radio" name="terrace" value="no">
+            </div>
+          </label>
+          <label for="AC" class="flex flex-col gap-1">
+            <span class="font-medium">Air Conditioning</span>
+            <div class="flex gap-1">
+              <input type="radio" name="air_conditioning" value="yes" checked>
+              <input type="radio" name="air_conditioning" value="no">
+            </div>
+          </label>
+          <label for="balcony" class="flex flex-col gap-1">
+            <span class="font-medium">Balcony</span>
+            <div class="flex gap-1">
+              <input type="radio" name="balcony" value="yes" checked>
+              <input type="radio" name="balcony" value="no">
+            </div>
+          </label>
+          <label for="transaction" class="flex flex-col gap-1">
+            <span class="font-medium">Transaction Type</span>
+            <div class="flex gap-1">
+              <input type="radio" name="transaction_type" value="sale" checked>
+              <input type="radio" name="transaction_type" value="rent">
+              <p></p>
+            </div>
+          </label>
+        </div>
+        <label for="max_price" class="flex flex-col gap-1">
+          <span class="font-medium">Max Price</span>
+          <input min="0" type="number" id="max_price" name="Max price" value="1,500,000" step="1000"
+            class="px-2 py-1 hover:outline-[#8E1616] outline-1 outline outline-zinc-900" placeholder="Maximum Price" />
+        </label>
+
+        <button type="submit"
+          class="w-full py-1.5 text-lg bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 text-white uppercase tracking-wide font-medium border-none outline-none cursor-pointer mt-2">Search</button>
+      </form>
+    </div>
+
+    <div class="flex flex-col gap-4 bg-zinc-100 p-4 w-full overflow-y-scroll max-h-[672px]">
+      <div class="outline outline-1 outline-zinc-900 hover:outline-[#8E1616] transition-colors duration-300 p-4">
+        <div class="grid grid-cols-3 grid-rows-2 gap-4">
+          <div class="flex flex-col gap-1 px-4 py-2 text-center outline outline-1 outline-zinc-900">
+            Location
+            <span class="font-semibold text-lg">Montenegro</span>
+          </div>
+          <div class="flex flex-col gap-1 px-4 py-2 text-center w-full outline outline-1 outline-zinc-900">
+            Proprety Type
+            <span class="font-semibold text-lg">Mansion</span>
+          </div>
+          <div class="flex flex-col gap-1 px-4 py-2 text-center w-full outline outline-1 outline-zinc-900">
+            Rooms
+            <span class="font-semibold text-lg">31</span>
+          </div>
+          <div class="flex flex-col gap-1 px-4 py-2 text-center outline outline-1 outline-zinc-900">
+            Transaction Type
+            <span class="font-semibold text-lg">Purchase</span>
+          </div>
+          <div class="flex flex-col gap-1 px-4 py-2 text-center w-full outline outline-1 outline-zinc-900">
+            Surface Area
+            <span class="font-semibold text-lg">243 m²</span>
+          </div>
+          <div class="flex flex-col gap-1 px-4 py-2 text-center w-full outline outline-1 outline-zinc-900">
+            Price
+            <span class="font-semibold text-lg">$1,200,000</span>
+          </div>
+        </div>
+        <hr class="border-zinc-900 my-4" />
+        <div class="grid gap-2 grid-cols-4">
+          <button onclick="alertPlaceholder()"
+            class="bg-zinc-800 hover:bg-zinc-700 transition-colors duration-300 cursor-pointer py-2 text-white uppercase font-medium tracking-widest">price
+            trend</button>
+          <button onclick="alertPlaceholder()"
+            class="bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 cursor-pointer py-2 text-white uppercase font-medium text-sm tracking-widest">sarima</button>
+          <button onclick="alertPlaceholder()"
+            class="bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 cursor-pointer py-2 text-white uppercase font-medium text-sm tracking-widest">Regression
+            trend</button>
+          <button onclick="alertPlaceholder()"
+            class="bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 cursor-pointer py-2 text-white uppercase font-medium text-sm tracking-widest">Holt-winters</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="trendModal" class="trend-modal" onclick="closeTrend()">
+      <img id="trendImage" src="" alt="Price Trend Graph" />
+    </div>
+  </main>
+  <script>
+    function alertPlaceholder(){
+      alert('You clicked the button');
+    }
+  </script>
+</body>
+
+</html>
+
+<style>
+  input[type='radio'] {
+    appearance: none;
+    width: 100%;
+    height: 28px;
+    border: 1px solid #1d1616;
+    position: relative;
+    transition: all 300ms;
+    cursor: pointer;
+  }
+
+  input[type='radio']:checked {
+    background-color: #1d1616;
+  }
+
+  input[type='radio']:checked::before {
+    color: white;
+  }
+
+  input[type='radio']:before {
+    content: 'Yes';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  input[type='radio']:nth-child(2)::before {
+    content: 'No';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  div:has(p)>input[type='radio']:before {
+    content: 'Sale';
+  }
+
+  div:has(p)>input[type='radio']:nth-child(2):before {
+    content: 'Rent';
+  }
+
+  .trend-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trend-modal img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+</style>

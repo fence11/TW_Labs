@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>About</title>
+  </head>
+  <body class="min-h-[100vh] flex flex-col overflow-x-hidden bg-[#16151D]">
+    <div class="w-screen h-screen absolute top-0 left-0 brightness-40 z-[-1]">
+      <img src="assets/BGImage.webp" alt="BG Image" class="w-full h-full object-cover">
+    </div>
+    <header class="max-w-[1200px] mx-auto flex gap-8 text-3xl font-medium py-8 text-zinc-100">
+        <a href="index.html" class="cursor-pointer relative before:absolute before:content-[''] before:w-0 hover:before:w-full before:transition-all before:duration-300 before:-bottom-2 before:left-0 before:h-[2px] before:bg-[#D84040]">Home</a>
+        <a href="about.html" class="cursor-pointer relative before:absolute before:content-[''] before:w-0 hover:before:w-full before:transition-all before:duration-300 before:-bottom-2 before:left-0 before:h-[2px] before:bg-[#D84040]">About Project</a>
+    </header>
+    <main class="max-w-[1200px] mx-auto flex flex-col my-auto text-zinc-100 h-full w-full">
+     <div class="grid grid-cols-3 w-full gap-8 px-4">
+        <article class="bg-white rounded-xl w-full p-4 flex flex-col">
+            <div class="flex items-center gap-4">
+                <div class="aspect-square w-[60px] rounded-full bg-[#D84040] text-white flex items-center justify-center">
+                    <img src="assets/Sarima.svg" alt="Sarima" />
+                </div>
+                <h2 class="text-2xl font-semibold tracking-wide text-zinc-900 uppercase">sarima</h2>
+            </div>
+            <hr class="my-4 border-zinc-900">
+            <p class="text-zinc-700 line-clamp-[7]">SARIMA is a time series forecasting model that captures trends, seasonality, and autocorrelation in data. It combines autoregressive (AR), differencing (I), and moving average (MA) components, along with seasonal parameters, to model complex temporal patterns. It’s ideal for data with clear seasonality and trends but requires careful parameter tuning.</p>
+            <a href="https://alkaline-ml.com/pmdarima/modules/classes.html#module-pmdarima.arima" class="w-full mt-2 font-medium py-2 text-center px-2 text-lg bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 cursor-pointer uppercase tracking-wide">Source</a>
+        </article>
+        <article class="bg-white rounded-xl w-full p-4 flex flex-col">
+            <div class="flex items-center gap-4">
+                <div class="aspect-square w-[60px] rounded-full bg-[#D84040] text-white flex items-center justify-center">
+                    <img src="assets/Regression.svg" alt="Regression" />
+                </div>
+                <h2 class="text-2xl font-semibold tracking-wide text-zinc-900 uppercase">Regression</h2>
+            </div>
+            <hr class="my-4 border-zinc-900">
+            <p class="text-zinc-700 line-clamp-[7]">Linear Regression predicts a dependent variable (e.g., house prices) based on one or more independent variables (e.g., interest rates, income). It assumes a linear relationship between inputs and outputs, making it simple and interpretable. It’s widely used for its ability to incorporate external factors but struggles with nonlinear relationships.</p>
+            <a href="https://www.geeksforgeeks.org/linear-regression-python-implementation/" class="w-full mt-2 font-medium py-2 text-center px-2 text-lg bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 cursor-pointer uppercase tracking-wide">Source</a>
+        </article>
+        <article class="bg-white rounded-xl w-full p-4 flex flex-col">
+            <div class="flex items-center gap-4">
+                <div class="aspect-square w-[60px] rounded-full bg-[#D84040] text-white flex items-center justify-center">
+                    <img src="assets/Holt-winters.svg" alt="Holt-winters" />
+                </div>
+                <h2 class="text-2xl font-semibold tracking-wide text-zinc-900 uppercase">Holt-winters</h2>
+            </div>
+            <hr class="my-4 border-zinc-900">
+            <p class="text-zinc-700 line-clamp-[7]">Holt-Winters is a time series forecasting method that models level, trend, and seasonality in data. It uses exponential smoothing to give more weight to recent observations, making it effective for short-term forecasts with seasonal patterns. It’s simple and efficient but limited to univariate data and less suitable for long-term predictions.</p>
+            <a href="https://otexts.com/fpp2/holt-winters.html" class="w-full mt-2 font-medium py-2 text-center px-2 text-lg bg-[#8E1616] hover:bg-[#D84040] transition-colors duration-300 cursor-pointer uppercase tracking-wide">Source</a>
+        </article>
+     </div>
+     <hr class="my-8">
+     <h3 class="mx-auto text-4xl text-white font-medium uppercase mb-4">Our team</h3>
+     <div class="grid grid-cols-3 w-full gap-16 px-8 text-zinc-900">
+        <div class="bg-white rounded-lg p-4 flex gap-4 items-center">
+            <div class="aspect-square w-[50px] outline outline-2 outline-[#8E1616] rounded-full flex items-center justify-center">
+                <img src="assets/Backend.svg" alt="Backend">
+            </div>
+            <div class="flex flex-col">
+                <span class="text-lg font-medium">Dev 1</span> 
+                <span>Backend Development</span>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg p-4 flex gap-4 items-center">
+            <div class="aspect-square w-[50px] outline outline-2 outline-[#8E1616] rounded-full flex items-center justify-center">
+                <img src="assets/ProjectManager.svg" alt="Backend">
+            </div>
+            <div class="flex flex-col">
+                <span class="text-lg font-medium">Dev 2</span> 
+                <span>Project Manager</span>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg p-4 flex gap-4 items-center">
+            <div class="aspect-square w-[50px] outline outline-2 outline-[#8E1616] rounded-full flex items-center justify-center">
+                <img src="assets/Frontend.svg" alt="Backend">
+            </div>
+            <div class="flex flex-col">
+                <span class="text-lg font-medium">Dev 3</span> 
+                <span>Frontend Development</span>
+            </div>
+        </div>
+     </div>
+    </main>
+  </body>
+</html>
